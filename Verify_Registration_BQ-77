@@ -18,7 +18,7 @@ my_account.click()
     
 #Enter the test data to register (later write a program to randomly create email ids so you dont get the "User already exists" error)
 login_email=driver.find_element(By.ID,"reg_email")
-login_email.send_keys("qwerty11@gmail.com")
+login_email.send_keys("qwerty14@gmail.com")
 # login_email.send_keys(Keys.TAB)
 
 login_passw=driver.find_element(By.ID,"reg_password")
@@ -27,15 +27,10 @@ submit_btn=driver.find_element(By.NAME,"register")
 submit_btn.click()
 time.sleep(1)
 
+dashboard=driver.find_element(By.CSS_SELECTOR,"#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--dashboard.is-active > a")
 # If the registration was successful, then print "Success" otherwise print "Fail!"
-try:
-    logout_link=driver.find_element(By.CSS_SELECTOR,"#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--dashboard.is-active > a")
-    print("success!!")
-except:
-    print("Fail!Did not go into the account!")
-
-if logout_link.text=="Dashboard":
-    print("Registered successfully")
-    
+# try:
+if dashboard.text=="Dashboard":
+    print("Registered Successfully!!")
 else:
-    print("Register did not work")    
+    print("Fail! Did not go into the account!")
