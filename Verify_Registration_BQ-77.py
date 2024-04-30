@@ -30,8 +30,10 @@ submit_btn=driver.find_element(By.NAME,"register")
 submit_btn.click()
 time.sleep(1)
 
+link=driver.find_element(By.CSS_SELECTOR,"#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--dashboard.is-active > a")
+
 # If the registration was successful, then print "Success" otherwise print "Fail!"
-if driver.find_element(By.CSS_SELECTOR,"#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--dashboard.is-active > a").is_displayed:
+if link.is_displayed():
     print("Registered Successfully!!")
 else:
     print("Fail! Did not go into the account!")
