@@ -4,9 +4,6 @@ from selenium.webdriver.common.keys import Keys
 import random
 import string
 import time
-# import pdb
-# pdb.set_trace()
-
 
 # Go to the browser and then load the site
 driver=webdriver.Chrome()
@@ -21,9 +18,9 @@ my_account.click()
 letters = string.ascii_letters
 length=10
 result = ''.join(random.choice(letters) for _ in range(length))
-print(result)
 email=result+"@gmail.com"
-    
+print(f"The email created is: {email}")
+
 #Enter the test data to register (later write a program to randomly create email ids so you dont get the "User already exists" error)
 login_email=driver.find_element(By.ID,"reg_email")
 login_email.send_keys(email)
@@ -38,9 +35,3 @@ if driver.find_element(By.CSS_SELECTOR,"#post-9 > div > div > nav > ul > li.wooc
     print("Registered Successfully!!")
 else:
     print("Fail! Did not go into the account!")
-
-
-# if dashboard.text=="Dashboard":
-#     print("Registered Successfully!!")
-# else:
-#     print("Fail! Did not go into the account!")
